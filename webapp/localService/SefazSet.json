@@ -1,0 +1,9 @@
+[{
+	"ID": "PR",
+	"descricao": "Erro no Sefaz",
+	"tipo": "E"
+}, {
+	"ID": "SP",
+	"descricao": "Serviço OK",
+	"tipo": "S"
+}]

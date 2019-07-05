@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.nfChannel.controller.ValueHelpNf" xmlns="sap.m">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Notas Fiscais" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<List mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true"
+				growingThreshold="5" growingScrollToLoad="true" visible="true" selectionChange="_onStandardListSelectionChange"
+				items="{path:'/NotaFiscalSet', templateShareable:true}">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="true" enabled="true">
+						<content/>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<Toolbar enabled="true" visible="true" width="" design="Solid">
+						<content>
+							<SearchField placeholder="Search" showSearchButton="true" visible="true" width="100%"/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<items>
+					<StandardListItem icon="sap-icon://notes" title="{numDocumento}" description="{nfeNum}" info="{cnpjEmissor}" infoState="Success"
+						type="Active" selected="false" visible="true"/>
+				</items>
+			</List>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="Fechar" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+{
+	"dataBinding": {
+		"/webapp/view/ListaLote.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/DetailLote.view.xml": {
+			"entitySet": "/LoteSet"
+		},
+		"/webapp/view/PopoverSefaz.view.xml": {
+			"entitySet": "/SefazSet"
+		},
+		"/webapp/view/ValueHelpNf.view.xml": {
+			"entitySet": "/NotaFiscalSet"
+		},
+		"/webapp/view/QuickView1.view.xml": {
+			"entitySet": ""
+		}
+	}
+}

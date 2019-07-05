@@ -1,0 +1,13 @@
+[{
+	"ID": "01",
+	"nome": "Erro",
+	"tipo": "E"
+}, {
+	"ID": "02",
+	"nome": "Sucesso",
+	"tipo": "S"
+}, {
+	"ID": "03",
+	"nome": "Processando",
+	"tipo": "W"
+}]

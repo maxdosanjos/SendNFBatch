@@ -1,0 +1,33 @@
+[{
+	"ID": "1",
+	"descricao": "Erro ao enviar o lote",
+	"textoInfo": "Web Service não disponível no momento, lote não será enviado.",
+	"atividade": "Enviar lote NF-e",
+	"___FK_c423a3efa8a1f32510f2635e_00017": "346624",
+	"tipo": "E",
+	"dataHora": "/Date(1546905540000)/"
+}, {
+	"ID": "2",
+	"descricao": "Erro ao enviar o lote",
+	"textoInfo": "Web Service não disponível no momento, lote não será enviado.",
+	"atividade": "Enviar lote NF-e",
+	"___FK_c423a3efa8a1f32510f2635e_00017": "346626",
+	"tipo": "E",
+	"dataHora": "/Date(1546905540000)/"
+}, {
+	"ID": "3",
+	"descricao": "Erro ao enviar o lote",
+	"textoInfo": "Web Service não disponível no momento, lote não será enviado.",
+	"atividade": "Enviar lote NF-e",
+	"___FK_c423a3efa8a1f32510f2635e_00017": "346627",
+	"tipo": "E",
+	"dataHora": "/Date(1546905540000)/"
+}, {
+	"ID": "4",
+	"descricao": "Lote criado com êxito",
+	"textoInfo": "Lote criado corretamente",
+	"atividade": "Criar lote NF-e",
+	"___FK_c423a3efa8a1f32510f2635e_00017": "346625",
+	"tipo": "S",
+	"dataHora": "/Date(1546905540000)/"
+}]

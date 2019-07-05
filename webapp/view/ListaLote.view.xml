@@ -1,0 +1,134 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.nfChannel.controller.ListaLote" xmlns:f="sap.f"
+	xmlns:variants="sap.ui.comp.variants" xmlns="sap.m" xmlns:filterbar="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<f:DynamicPage headerExpanded="true" showFooter="false" class="sapUiSizeCompact">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading></f:heading>
+				<f:actions></f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<f:content>
+					<filterbar:FilterBar id="filterBar" reset="onReset" search="onSearch" clear="onClear" showRestoreButton="true" showClearButton="true"
+						persistencyKey="Z_NFC_Lote" showGoOnFB="true">
+						<filterbar:filterItems>
+							<filterbar:FilterItem label="Status" name="fi_Status" id="fi_Status">
+								<filterbar:control>
+									<MultiComboBox items="{path:'/StatusLoteSet', templateShareable:true}" selectionChange="onChangeInputFilter">
+										<items>
+											<core:Item key="{ID}" text="{nome}"/>
+										</items>
+									</MultiComboBox>
+								</filterbar:control>
+							</filterbar:FilterItem>
+							<filterbar:FilterItem label="Data Envio" name="fi_DtEnvio" id="fi_DtEnvio">
+								<filterbar:control>
+									<DateRangeSelection placeholder="Data" width="auto" displayFormat="short" enabled="true" visible="true" change="onDateRangeSelectionChange"/>
+								</filterbar:control>
+							</filterbar:FilterItem>
+							<filterbar:FilterItem label="Empresa" name="fi_Empresa" id="fi_Empresa">
+								<filterbar:control>
+									<MultiComboBox items="{path:'/EmpresaSet', templateShareable:true}" selectionChange="onChangeInputFilter">
+										<items>
+											<core:Item key="{ID}" text="{descricao}"/>
+										</items>
+									</MultiComboBox>
+								</filterbar:control>
+							</filterbar:FilterItem>
+							<filterbar:FilterItem label="Nº de NF-e" name="fi_NfeNum" id="fi_NfeNum">
+								<filterbar:control>
+									<MultiInput tokenUpdate="onChangeInputFilter" id="MI_nf" placeholder="Nº NF-e" enableMultiLineMode="true" showValueHelp="true"
+										valueHelpOnly="false" valueHelpRequest="onMultiInputValueHelpRequestNF"></MultiInput>
+								</filterbar:control>
+							</filterbar:FilterItem>
+						</filterbar:filterItems>
+					</filterbar:FilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<VBox fitContainer="true">
+				<items>
+					<Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="MultiSelect" itemPress="onPressItemTbLote"
+						updateFinished="onUpdateFinishedTbLote" items="{path:'/LoteSet', templateShareable:true, parameters:{expand:'StatusLote'}}" id="tb_Lote">
+						<headerToolbar>
+							<OverflowToolbar design="Transparent">
+								<content>
+									<Title textAlign="Begin" text="Resultado"/>
+									<Title text="(1)"/>
+									<ToolbarSpacer/>
+									<Button text="Reenviar" icon="sap-icon://arrow-right" iconFirst="true" type="Emphasized" enabled="true" press="onPressReenviar">
+										<layoutData>
+											<OverflowToolbarLayoutData/>
+										</layoutData>
+									</Button>
+									<Button text="Atualizar lista" icon="sap-icon://refresh" iconFirst="true" type="Emphasized" enabled="true" press="onPressAtualizarLista">
+										<layoutData>
+											<OverflowToolbarLayoutData/>
+										</layoutData>
+									</Button>
+									<Button icon="sap-icon://action-settings" type="Transparent">
+										<layoutData>
+											<OverflowToolbarLayoutData/>
+										</layoutData>
+									</Button>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="auto" minScreenWidth="Phone">
+								<header>
+									<Text text="Nº Lote" width="auto"/>
+								</header>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+								<header>
+									<Text text="Status"/>
+								</header>
+							</Column>
+							<Column width="auto" minScreenWidth="Phone">
+								<header>
+									<Text text="UF" width="auto"/>
+								</header>
+							</Column>
+							<Column width="57.84000000px" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true"
+								minScreenWidth="Tablet">
+								<header>
+									<Text text="SEFAZ"/>
+								</header>
+							</Column>
+							<Column width="auto" minScreenWidth="Phone">
+								<header>
+									<Text text="Data/Hora Envio" width="auto"/>
+								</header>
+							</Column>
+							<Column width="auto" minScreenWidth="Desktop" demandPopin="true">
+								<header>
+									<Text text="Total NF" width="auto"/>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation">
+								<cells>
+									<ObjectIdentifier title="{ID}" text=""/>
+									<ObjectStatus title="" text="{StatusLote/nome}" state="Error" icon="sap-icon://message-error" visible="true"/>
+									<Link text="{uf}" press="onPressColUF"/>
+									<ObjectStatus text="" state="Error" icon="sap-icon://message-error" visible="true"/>
+									<ObjectStatus text="{path: 'dataEnvio', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}"/>
+									<ObjectStatus text="{path: 'totalNotas', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</f:content>
+		<f:footer>
+			<OverflowToolbar>
+				<content></content>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

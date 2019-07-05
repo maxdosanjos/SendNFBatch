@@ -1,0 +1,213 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="a1fdb13d1543c36010de6ef4" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityContainer Name="a1fdb13d1543c36010de6ef4_Entities" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="LoteSet" EntityType="a1fdb13d1543c36010de6ef4.Lote" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+				<AssociationSet Name="LoteListaNotaFiscalNotaFiscal" Association="a1fdb13d1543c36010de6ef4.LoteListaNotaFiscalNotaFiscal"
+					sap:creatable="true" sap:updatable="true" sap:deletable="true">
+					<End EntitySet="LoteSet" Role="FromRole_LoteListaNotaFiscalNotaFiscal"/>
+					<End EntitySet="NotaFiscalSet" Role="ToRole_LoteListaNotaFiscalNotaFiscal"/>
+				</AssociationSet>
+				<AssociationSet Name="LoteStatusLoteStatusLote" Association="a1fdb13d1543c36010de6ef4.LoteStatusLoteStatusLote" sap:creatable="true"
+					sap:updatable="true" sap:deletable="true">
+					<End EntitySet="LoteSet" Role="FromRole_LoteStatusLoteStatusLote"/>
+					<End EntitySet="StatusLoteSet" Role="ToRole_LoteStatusLoteStatusLote"/>
+				</AssociationSet>
+				<AssociationSet Name="LoteSisteseStatusLoteSisteseStatusLote" Association="a1fdb13d1543c36010de6ef4.LoteSisteseStatusLoteSisteseStatusLote"
+					sap:creatable="true" sap:updatable="true" sap:deletable="true">
+					<End EntitySet="LoteSet" Role="FromRole_LoteSisteseStatusLoteSisteseStatusLote"/>
+					<End EntitySet="SisteseStatusLoteSet" Role="ToRole_LoteSisteseStatusLoteSisteseStatusLote"/>
+				</AssociationSet>
+				<AssociationSet Name="LoteStatusSefazSefaz" Association="a1fdb13d1543c36010de6ef4.LoteStatusSefazSefaz" sap:creatable="true"
+					sap:updatable="true" sap:deletable="true">
+					<End EntitySet="LoteSet" Role="FromRole_LoteStatusSefazSefaz"/>
+					<End EntitySet="SefazSet" Role="ToRole_LoteStatusSefazSefaz"/>
+				</AssociationSet>
+				<EntitySet Name="NotaFiscalSet" EntityType="a1fdb13d1543c36010de6ef4.NotaFiscal" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+				<AssociationSet Name="NotaFiscalEmpresaEmpresa" Association="a1fdb13d1543c36010de6ef4.NotaFiscalEmpresaEmpresa" sap:creatable="true"
+					sap:updatable="true" sap:deletable="true">
+					<End EntitySet="NotaFiscalSet" Role="FromRole_NotaFiscalEmpresaEmpresa"/>
+					<End EntitySet="EmpresaSet" Role="ToRole_NotaFiscalEmpresaEmpresa"/>
+				</AssociationSet>
+				<AssociationSet Name="NotaFiscalStatusNotaFiscalStatusNotaFiscal"
+					Association="a1fdb13d1543c36010de6ef4.NotaFiscalStatusNotaFiscalStatusNotaFiscal" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true">
+					<End EntitySet="NotaFiscalSet" Role="FromRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal"/>
+					<End EntitySet="StatusNotaFiscalSet" Role="ToRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal"/>
+				</AssociationSet>
+				<EntitySet Name="EmpresaSet" EntityType="a1fdb13d1543c36010de6ef4.Empresa" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+				<EntitySet Name="StatusLoteSet" EntityType="a1fdb13d1543c36010de6ef4.StatusLote" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+				<EntitySet Name="SisteseStatusLoteSet" EntityType="a1fdb13d1543c36010de6ef4.SisteseStatusLote" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+				<EntitySet Name="StatusNotaFiscalSet" EntityType="a1fdb13d1543c36010de6ef4.StatusNotaFiscal" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+				<EntitySet Name="SefazSet" EntityType="a1fdb13d1543c36010de6ef4.Sefaz" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+			</EntityContainer>
+			<EntityType Name="Lote">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="uf" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="uf"/>
+				<Property Name="dataEnvio" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="dataEnvio"/>
+				<Property Name="totalNotas" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="totalNotas"/>
+				<Property Name="___FK_f484269e18c60c5710f227dc_00011" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_f484269e18c60c5710f227dc_00011"/>
+				<Property Name="___FK_ac47b49d892a977910f27821_00020" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_ac47b49d892a977910f27821_00020"/>
+				<NavigationProperty Name="ListaNotaFiscal" Relationship="a1fdb13d1543c36010de6ef4.LoteListaNotaFiscalNotaFiscal"
+					FromRole="FromRole_LoteListaNotaFiscalNotaFiscal" ToRole="ToRole_LoteListaNotaFiscalNotaFiscal"/>
+				<NavigationProperty Name="StatusLote" Relationship="a1fdb13d1543c36010de6ef4.LoteStatusLoteStatusLote"
+					FromRole="FromRole_LoteStatusLoteStatusLote" ToRole="ToRole_LoteStatusLoteStatusLote"/>
+				<NavigationProperty Name="SisteseStatusLote" Relationship="a1fdb13d1543c36010de6ef4.LoteSisteseStatusLoteSisteseStatusLote"
+					FromRole="FromRole_LoteSisteseStatusLoteSisteseStatusLote" ToRole="ToRole_LoteSisteseStatusLoteSisteseStatusLote"/>
+				<NavigationProperty Name="StatusSefaz" Relationship="a1fdb13d1543c36010de6ef4.LoteStatusSefazSefaz" FromRole="FromRole_LoteStatusSefazSefaz"
+					ToRole="ToRole_LoteStatusSefazSefaz"/>
+			</EntityType>
+			<Association Name="LoteListaNotaFiscalNotaFiscal">
+				<End Type="a1fdb13d1543c36010de6ef4.Lote" Multiplicity="1" Role="FromRole_LoteListaNotaFiscalNotaFiscal"/>
+				<End Type="a1fdb13d1543c36010de6ef4.NotaFiscal" Multiplicity="*" Role="ToRole_LoteListaNotaFiscalNotaFiscal"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_LoteListaNotaFiscalNotaFiscal">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="ToRole_LoteListaNotaFiscalNotaFiscal">
+						<PropertyRef Name="___FK_5ae27c9ef4f7807b10de9c48_00015"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="LoteStatusLoteStatusLote">
+				<End Type="a1fdb13d1543c36010de6ef4.Lote" Multiplicity="1" Role="FromRole_LoteStatusLoteStatusLote"/>
+				<End Type="a1fdb13d1543c36010de6ef4.StatusLote" Multiplicity="1" Role="ToRole_LoteStatusLoteStatusLote"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_LoteStatusLoteStatusLote">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="FromRole_LoteStatusLoteStatusLote">
+						<PropertyRef Name="___FK_f484269e18c60c5710f227dc_00011"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="LoteSisteseStatusLoteSisteseStatusLote">
+				<End Type="a1fdb13d1543c36010de6ef4.Lote" Multiplicity="1" Role="FromRole_LoteSisteseStatusLoteSisteseStatusLote"/>
+				<End Type="a1fdb13d1543c36010de6ef4.SisteseStatusLote" Multiplicity="*" Role="ToRole_LoteSisteseStatusLoteSisteseStatusLote"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_LoteSisteseStatusLoteSisteseStatusLote">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="ToRole_LoteSisteseStatusLoteSisteseStatusLote">
+						<PropertyRef Name="___FK_c423a3efa8a1f32510f2635e_00017"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="LoteStatusSefazSefaz">
+				<End Type="a1fdb13d1543c36010de6ef4.Lote" Multiplicity="1" Role="FromRole_LoteStatusSefazSefaz"/>
+				<End Type="a1fdb13d1543c36010de6ef4.Sefaz" Multiplicity="1" Role="ToRole_LoteStatusSefazSefaz"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_LoteStatusSefazSefaz">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="FromRole_LoteStatusSefazSefaz">
+						<PropertyRef Name="___FK_ac47b49d892a977910f27821_00020"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityType Name="NotaFiscal">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="chaveAcesso" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="chaveAcesso"/>
+				<Property Name="numDocumento" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="numDocumento"/>
+				<Property Name="nfeNum" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="NfeNum"/>
+				<Property Name="cnpjEmissor" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="cnpjEmissor"/>
+				<Property Name="cnpjDestinatario" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="cnpjDestinatario"/>
+				<Property Name="___FK_5ae27c9ef4f7807b10de9c48_00015" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_5ae27c9ef4f7807b10de9c48_00015"/>
+				<Property Name="___FK_f484269e18c60c5710f227dc_00004" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_f484269e18c60c5710f227dc_00004"/>
+				<Property Name="___FK_ac47b49d892a977910f27821_00009" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_ac47b49d892a977910f27821_00009"/>
+				<Property Name="nomeDest" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nomeDest"/>
+				<NavigationProperty Name="Empresa" Relationship="a1fdb13d1543c36010de6ef4.NotaFiscalEmpresaEmpresa"
+					FromRole="FromRole_NotaFiscalEmpresaEmpresa" ToRole="ToRole_NotaFiscalEmpresaEmpresa"/>
+				<NavigationProperty Name="StatusNotaFiscal" Relationship="a1fdb13d1543c36010de6ef4.NotaFiscalStatusNotaFiscalStatusNotaFiscal"
+					FromRole="FromRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal" ToRole="ToRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal"/>
+			</EntityType>
+			<Association Name="NotaFiscalEmpresaEmpresa">
+				<End Type="a1fdb13d1543c36010de6ef4.NotaFiscal" Multiplicity="1" Role="FromRole_NotaFiscalEmpresaEmpresa"/>
+				<End Type="a1fdb13d1543c36010de6ef4.Empresa" Multiplicity="1" Role="ToRole_NotaFiscalEmpresaEmpresa"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_NotaFiscalEmpresaEmpresa">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="FromRole_NotaFiscalEmpresaEmpresa">
+						<PropertyRef Name="___FK_f484269e18c60c5710f227dc_00004"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NotaFiscalStatusNotaFiscalStatusNotaFiscal">
+				<End Type="a1fdb13d1543c36010de6ef4.NotaFiscal" Multiplicity="1" Role="FromRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal"/>
+				<End Type="a1fdb13d1543c36010de6ef4.StatusNotaFiscal" Multiplicity="1" Role="ToRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="FromRole_NotaFiscalStatusNotaFiscalStatusNotaFiscal">
+						<PropertyRef Name="___FK_ac47b49d892a977910f27821_00009"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityType Name="Empresa">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="descricao" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nome"/>
+			</EntityType>
+			<EntityType Name="StatusLote" sap:pdm-semantics="business-data">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="nome" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nome"/>
+				<Property Name="tipo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="type"/>
+			</EntityType>
+			<EntityType Name="SisteseStatusLote">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="descricao" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="descricao"/>
+				<Property Name="textoInfo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="textoInfo"/>
+				<Property Name="atividade" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="atividade"/>
+				<Property Name="___FK_c423a3efa8a1f32510f2635e_00017" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_c423a3efa8a1f32510f2635e_00017"/>
+				<Property Name="tipo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="icon"/>
+				<Property Name="dataHora" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="dataHora"/>
+			</EntityType>
+			<EntityType Name="StatusNotaFiscal">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="descricao" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nome"/>
+				<Property Name="tipo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="tipo"/>
+			</EntityType>
+			<EntityType Name="Sefaz" sap:pdm-semantics="business-data">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="descricao" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nome"/>
+				<Property Name="tipo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="status"/>
+			</EntityType>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

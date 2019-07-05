@@ -1,0 +1,283 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.nfChannel.controller.DetailLote" xmlns:uxap="sap.uxap"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+	<uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="false"
+		class="sapUiSizeCompact">
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader objectTitle="{ID}" objectSubtitle="" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true"
+				isObjectSubtitleAlwaysVisible="true" showPlaceholder="true" objectImageURI="sap-icon://group-2">
+				<uxap:navigationBar>
+					<Bar>
+						<contentLeft>
+							<Button type="Back" press="_onFioriObjectPageHeaderPress"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="Lote"/>
+						</contentMiddle>
+						<contentRight/>
+					</Bar>
+				</uxap:navigationBar>
+				<uxap:actions>
+					<Button text="Reenviar lote" icon="sap-icon://arrow-right" iconFirst="true" type="Emphasized" enabled="true"
+						press="_onFioriObjectPageActionButtonPress">
+						<layoutData>
+							<OverflowToolbarLayoutData moveToOverflow="true"/>
+						</layoutData>
+					</Button>
+				</uxap:actions>
+				<uxap:breadCrumbsLinks/>
+			</uxap:ObjectPageHeader>
+		</uxap:headerTitle>
+		<uxap:headerContent>
+			<VBox>
+				<items>
+					<core:Icon src="sap-icon://group-2" class="sapUxAPObjectPageHeaderObjectImage sapSmartTemplatesObjectPageHeaderImage" size="6rem"
+						width="6rem" height="6rem" visible="true"/>
+				</items>
+			</VBox>
+			<VBox>
+				<items>
+					<HBox>
+						<items>
+							<Label text="Status Lote"/>
+							<Label text=":" class="sapUiTinyMarginEnd"/>
+							<ObjectStatus text="{StatusLote/nome}" state="Error" icon="sap-icon://status-negative"/>
+						</items>
+					</HBox>
+					<HBox>
+						<items>
+							<Label text="Status Sefaz"/>
+							<Label text=":" class="sapUiTinyMarginEnd"/>
+							<ObjectStatus text="{StatusSefaz/descricao}" state="Error" icon="sap-icon://status-negative"/>
+						</items>
+					</HBox>
+				</items>
+			</VBox>
+		</uxap:headerContent>
+		<uxap:sections>
+			<uxap:ObjectPageSection title="Detalhes">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Detalhes">
+						<uxap:blocks>
+							<layout:Grid defaultSpan="XL12 L12 M12 S12">
+								<layout:content>
+									<form:Form>
+										<form:layout>
+											<form:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+												emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="3" columnsM="2" singleContainerFullSize="false"/>
+										</form:layout>
+										<form:formContainers>
+											<form:FormContainer title="">
+												<form:formElements>
+													<form:FormElement>
+														<form:label>
+															<Label text="ID" required="false"/>
+														</form:label>
+														<form:fields>
+															<HBox>
+																<items>
+																	<Text text="{ID}"/>
+																	<Text text="(" class="sapUiTinyMarginBegin"/>
+																	<Text text="{StatusLote/nome}"/>
+																	<Text text=")"/>
+																</items>
+															</HBox>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement>
+														<form:label>
+															<Label text="Data de envio" required="false"/>
+														</form:label>
+														<form:fields>
+															<ObjectStatus text="{path: 'dataEnvio', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement>
+														<form:label>
+															<Label text="Estado" required="false"/>
+														</form:label>
+														<form:fields>
+															<ObjectStatus text="{uf}"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement>
+														<form:label>
+															<Label text="Total de notas" required="false"/>
+														</form:label>
+														<form:fields>
+															<ObjectStatus text="{path: 'totalNotas', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}"/>
+														</form:fields>
+													</form:FormElement>
+												</form:formElements>
+											</form:FormContainer>
+										</form:formContainers>
+									</form:Form>
+								</layout:content>
+							</layout:Grid>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="Notas fiscais">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Notas fiscais">
+						<uxap:blocks>
+							<Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="MultiSelect"
+								items="{path:'ListaNotaFiscal', templateShareable:true, parameters:{expand:'StatusNotaFiscal'}}">
+								<headerToolbar>
+									<OverflowToolbar design="Transparent">
+										<content>
+											<ToolbarSpacer/>
+											<Button text="Continuar processo" icon="sap-icon://process" iconFirst="true" type="Emphasized" press="_onFioriObjectPageTableActionPress">
+												<layoutData>
+													<OverflowToolbarLayoutData moveToOverflow="true"/>
+												</layoutData>
+											</Button>
+											<Button text="Solicitar verificação status" icon="sap-icon://check-availability" iconFirst="true" type="Emphasized"
+												press="_onFioriObjectPageTableActionPress1">
+												<layoutData>
+													<OverflowToolbarLayoutData moveToOverflow="true"/>
+												</layoutData>
+											</Button>
+											<Button text="Atualizar lista" icon="sap-icon://refresh" iconFirst="true" type="Emphasized" press="_onFioriObjectPageTableActionPress2">
+												<layoutData>
+													<OverflowToolbarLayoutData moveToOverflow="true"/>
+												</layoutData>
+											</Button>
+											<Button icon="sap-icon://action-settings" type="Transparent">
+												<layoutData>
+													<OverflowToolbarLayoutData moveToOverflow="true"/>
+												</layoutData>
+											</Button>
+										</content>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="auto" minScreenWidth="Phone">
+										<header>
+											<Text text="Chave de acesso" width="auto"/>
+										</header>
+									</Column>
+									<Column width="100px" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+										<header>
+											<Text text="Status"/>
+										</header>
+									</Column>
+									<Column width="auto" minScreenWidth="Tablet" demandPopin="true">
+										<header>
+											<Text text="Nº Documento" width="auto"/>
+										</header>
+									</Column>
+									<Column width="auto" minScreenWidth="Phone">
+										<header>
+											<Text text="NFe" width="auto"/>
+										</header>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+										<header>
+											<Text text="CNPJ Destinatário"/>
+										</header>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+										<header>
+											<Text text="Nome destinatário"/>
+										</header>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+										<header>
+											<Text text="CNPJ Emissor"/>
+										</header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active">
+										<cells>
+											<ObjectIdentifier title="{chaveAcesso}" text=""/>
+											<ObjectStatus text="{StatusNotaFiscal/descricao}" state="Error" icon="sap-icon://message-error" visible="true"/>
+											<ObjectStatus text="{numDocumento}"/>
+											<ObjectStatus text="{nfeNum}"/>
+											<Text text="{cnpjDestinatario}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<Text text="{nomeDest}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<Text text="{cnpjEmissor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="Síntese de Status">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Síntese de Status">
+						<uxap:blocks>
+							<Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="None"
+								items="{path:'SisteseStatusLote', templateShareable:true}">
+								<headerToolbar>
+									<OverflowToolbar design="Transparent">
+										<content>
+											<ToolbarSpacer/>
+											<Button icon="sap-icon://action-settings" type="Transparent">
+												<layoutData>
+													<OverflowToolbarLayoutData moveToOverflow="true"/>
+												</layoutData>
+											</Button>
+										</content>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="101.16000000px" hAlign="Left" vAlign="Middle" popinDisplay="Block" mergeDuplicates="false" demandPopin="true"
+										minScreenWidth="Tablet">
+										<header>
+											<Text text="Status"/>
+										</header>
+									</Column>
+									<Column width="auto" minScreenWidth="Phone">
+										<header>
+											<Text text="Atividade" width="auto"/>
+										</header>
+									</Column>
+									<Column width="auto" minScreenWidth="Tablet" demandPopin="true">
+										<header>
+											<Text text="Descrição" width="auto"/>
+										</header>
+									</Column>
+									<Column width="auto" minScreenWidth="Tablet" demandPopin="true">
+										<header>
+											<Text text="Texto Info." width="auto"/>
+										</header>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+										<header>
+											<Text text="Data/Hora"/>
+										</header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active">
+										<cells>
+											<ObjectStatus title="" text="" state="Error" icon="sap-icon://message-error" visible="true"/>
+											<ObjectIdentifier title="{atividade}" text=""/>
+											<ObjectStatus text="{descricao}"/>
+											<ObjectStatus text="{textoInfo}"/>
+											<Text text="{path: 'dataHora', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" width="auto" maxLines="1"
+												wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+		<uxap:footer>
+			<OverflowToolbar design="auto">
+				<content>
+					<ToolbarSpacer/>
+					<Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+				</content>
+			</OverflowToolbar>
+		</uxap:footer>
+	</uxap:ObjectPageLayout>
+</mvc:View>
